@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Accessible focus styles */
+*:focus{outline:none}
+*:focus-visible{
+	outline: 3px solid #2563eb; /* blue-600 */
+	outline-offset: 2px;
+}
+
+/* Screen-reader only helper (used in App.vue) */
+.sr-only {
+	position: absolute !important;
+	height: 1px; width: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	white-space: nowrap;
+}
+.not-sr-only{position:static;height:auto;width:auto;overflow:visible;clip:auto}
