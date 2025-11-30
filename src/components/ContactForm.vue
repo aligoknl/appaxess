@@ -13,15 +13,14 @@
                 name="contact"
                 method="POST"
                 action="/success"
-                netlify
                 data-netlify="true"
                 netlify-honeypot="bot-field"
                 class="space-y-6 bg-ax-gray-100 dark:bg-ax-primary-950 p-8 rounded-xl shadow-sm transition-colors"
             >
-                <!-- Required hidden Netlify fields -->
+                <!-- This form is handled by Netlify -->
                 <input type="hidden" name="form-name" value="contact" />
 
-                <!-- Honeypot field (bot trap) -->
+                <!-- Honeypot field -->
                 <div class="hidden">
                     <label>
                         Don’t fill this out if you're human:
@@ -62,6 +61,7 @@
                     <label for="url" class="block font-medium text-sm mb-1 text-ax-gray-800 dark:text-ax-gray-100">
                         Website URL
                     </label>
+
                     <div class="flex">
                         <span
                             class="inline-flex items-center px-3 bg-ax-gray-200 dark:bg-ax-primary-800 border border-r-0 border-ax-gray-300 dark:border-ax-primary-700 rounded-l-md text-sm text-ax-gray-600 dark:text-ax-gray-200"
