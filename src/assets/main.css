@@ -2,19 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Accessible focus styles */
-*:focus{outline:none}
-*:focus-visible{
-	outline: 3px solid #2563eb; /* blue-600 */
-	outline-offset: 2px;
+@layer base {
+	body {
+		@apply bg-white text-ax-gray-700 transition-colors duration-300 ease-out;
+	}
+
+	html.dark body {
+		@apply bg-ax-primary-950 text-ax-gray-100;
+	}
 }
 
-/* Screen-reader only helper (used in App.vue) */
+/* Accessible focus styles */
+*:focus-visible {
+	outline: 1px solid #ffffff;
+	outline-offset: 2px;
+	box-shadow: 0 0 0 2px #000000;
+}
+
+.skip-link {
+	position: absolute;
+	left: 1rem;
+	top: 1rem;
+	transform: translateY(-150%);
+	background-color: #facc15;
+	color: #1f2937;
+	padding: 0.5rem 1.25rem;
+	border-radius: 9999px;
+	font-weight: 600;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+	transition: transform 0.2s ease;
+	z-index: 100;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+	transform: translateY(0);
+}
+
+/* Screen-reader only helper */
 .sr-only {
 	position: absolute !important;
-	height: 1px; width: 1px;
+	height: 1px;
+	width: 1px;
 	overflow: hidden;
 	clip: rect(1px, 1px, 1px, 1px);
 	white-space: nowrap;
 }
-.not-sr-only{position:static;height:auto;width:auto;overflow:visible;clip:auto}
+
+.not-sr-only {
+	position: static;
+	height: auto;
+	width: auto;
+	overflow: visible;
+	clip: auto;
+}
