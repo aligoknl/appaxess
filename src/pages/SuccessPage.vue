@@ -50,14 +50,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { RouterLink, useRoute, useRouter } from 'vue-router'
-
-const route = useRoute()
-const router = useRouter()
-
-if (route.query.ok !== '1') {
-  router.replace('/')
-}
+import { RouterLink} from 'vue-router'
 
 const isDark = ref(false)
 
