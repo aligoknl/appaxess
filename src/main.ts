@@ -1,5 +1,6 @@
 import { createApp, type Directive } from 'vue'
 import PrimeVue from 'primevue/config'
+import router from './router'
 import Aura from '@primevue/themes/aura'
 
 import App from './App.vue'
@@ -68,6 +69,7 @@ app.use(PrimeVue, {
 		preset: Aura,
 	},
 })
+app.use(router)
 app.directive('intersect', intersectDirective)
 app.directive('appear', vAppear);
 app.mount('#app')
