@@ -9,15 +9,22 @@
                 scan summary with the top issues and next steps directly in your inbox.
             </p>
 
-            <form name="contact" method="POST" action="/success?ok=1" netlify data-netlify="true"
+            <form
+                name="contact"
+                method="POST"
+                action="/success"
+                netlify
+                data-netlify="true"
                 netlify-honeypot="bot-field"
-                class="space-y-6 bg-ax-gray-100 dark:bg-ax-primary-950 p-8 rounded-xl shadow-sm transition-colors">
+                class="space-y-6 bg-ax-gray-100 dark:bg-ax-primary-950 p-8 rounded-xl shadow-sm transition-colors"
+            >
                 <!-- Required hidden Netlify fields -->
                 <input type="hidden" name="form-name" value="contact" />
 
                 <!-- Honeypot field (bot trap) -->
                 <div class="hidden">
-                    <label>Don’t fill this out if you're human:
+                    <label>
+                        Don’t fill this out if you're human:
                         <input name="bot-field" />
                     </label>
                 </div>
@@ -27,8 +34,13 @@
                     <label for="name" class="block font-medium text-sm mb-1 text-ax-gray-800 dark:text-ax-gray-100">
                         Name
                     </label>
-                    <input id="name" name="name" type="text" required
-                        class="w-full border border-ax-gray-300 dark:border-ax-primary-700 bg-white dark:bg-ax-primary-900 rounded-md px-3 py-2 dark:text-ax-gray-100" />
+                    <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        required
+                        class="w-full border border-ax-gray-300 dark:border-ax-primary-700 bg-white dark:bg-ax-primary-900 rounded-md px-3 py-2 dark:text-ax-gray-100"
+                    />
                 </div>
 
                 <!-- Email -->
@@ -36,8 +48,13 @@
                     <label for="email" class="block font-medium text-sm mb-1 text-ax-gray-800 dark:text-ax-gray-100">
                         Email
                     </label>
-                    <input id="email" name="email" type="email" required
-                        class="w-full border border-ax-gray-300 dark:border-ax-primary-700 bg-white dark:bg-ax-primary-900 rounded-md px-3 py-2 dark:text-ax-gray-100" />
+                    <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        required
+                        class="w-full border border-ax-gray-300 dark:border-ax-primary-700 bg-white dark:bg-ax-primary-900 rounded-md px-3 py-2 dark:text-ax-gray-100"
+                    />
                 </div>
 
                 <!-- Website URL -->
@@ -47,12 +64,19 @@
                     </label>
                     <div class="flex">
                         <span
-                            class="inline-flex items-center px-3 bg-ax-gray-200 dark:bg-ax-primary-800 border border-r-0 border-ax-gray-300 dark:border-ax-primary-700 rounded-l-md text-sm text-ax-gray-600 dark:text-ax-gray-200">
+                            class="inline-flex items-center px-3 bg-ax-gray-200 dark:bg-ax-primary-800 border border-r-0 border-ax-gray-300 dark:border-ax-primary-700 rounded-l-md text-sm text-ax-gray-600 dark:text-ax-gray-200"
+                        >
                             https://
                         </span>
 
-                        <input id="url" name="url" type="text" placeholder="www.example.com" required
-                            class="w-full border border-ax-gray-300 dark:border-ax-primary-700 bg-white dark:bg-ax-primary-900 rounded-r-md px-3 py-2 dark:text-ax-gray-100" />
+                        <input
+                            id="url"
+                            name="url"
+                            type="text"
+                            placeholder="www.example.com"
+                            required
+                            class="w-full border border-ax-gray-300 dark:border-ax-primary-700 bg-white dark:bg-ax-primary-900 rounded-r-md px-3 py-2 dark:text-ax-gray-100"
+                        />
                     </div>
                 </div>
 
@@ -61,13 +85,20 @@
                     <label for="message" class="block font-medium text-sm mb-1 text-ax-gray-800 dark:text-ax-gray-100">
                         Your message
                     </label>
-                    <textarea id="message" name="message" rows="5" required
-                        class="w-full border border-ax-gray-300 dark:border-ax-primary-700 bg-white dark:bg-ax-primary-900 rounded-md px-3 py-2 dark:text-ax-gray-100"></textarea>
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="5"
+                        required
+                        class="w-full border border-ax-gray-300 dark:border-ax-primary-700 bg-white dark:bg-ax-primary-900 rounded-md px-3 py-2 dark:text-ax-gray-100"
+                    ></textarea>
                 </div>
 
                 <!-- Submit -->
-                <button type="submit"
-                    class="w-full bg-ax-accent-500 text-black font-semibold py-3 rounded-md shadow hover:bg-ax-accent-400">
+                <button
+                    type="submit"
+                    class="w-full bg-ax-accent-500 text-black font-semibold py-3 rounded-md shadow hover:bg-ax-accent-400"
+                >
                     Send message
                 </button>
             </form>
