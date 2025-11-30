@@ -16,6 +16,7 @@
                 netlify
                 data-netlify="true"
                 netlify-honeypot="bot-field"
+                @submit.prevent="handleSubmit"
                 class="space-y-6 bg-ax-gray-100 dark:bg-ax-primary-950 p-8 rounded-xl shadow-sm transition-colors"
             >
                 <!-- This form is handled by Netlify -->
@@ -96,13 +97,66 @@
                 </div>
 
                 <!-- Submit -->
-                <button
-                    type="submit"
-                    class="w-full bg-ax-accent-500 text-black font-semibold py-3 rounded-md shadow hover:bg-ax-accent-400"
-                >
-                    Send message
-                </button>
+                <div class="space-y-3">
+                    <button
+                        type="submit"
+                        :disabled="isSubmitting"
+                        class="w-full bg-ax-accent-500 text-black font-semibold py-3 rounded-md shadow hover:bg-ax-accent-400 disabled:opacity-60 disabled:cursor-not-allowed"
+                    >
+                        {{ isSubmitting ? 'Sending…' : 'Send message' }}
+                    </button>
+
+                    <p v-if="errorMessage" class="text-sm text-red-500" role="alert" aria-live="assertive">
+                        {{ errorMessage }}
+                    </p>
+                </div>
             </form>
         </div>
     </section>
 </template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+const isSubmitting = ref(false)
+const errorMessage = ref<string | null>(null)
+const router = useRouter()
+
+const encodeFormData = (data: FormData) => {
+    const pairs: [string, string][] = []
+    data.forEach((value, key) => {
+        pairs.push([key, value.toString()])
+    })
+    return new URLSearchParams(pairs).toString()
+}
+
+const handleSubmit = async (event: Event) => {
+    const form = event.target as HTMLFormElement | null
+
+    if (!form) {
+        return
+    }
+
+    const formData = new FormData(form)
+
+    try {
+        isSubmitting.value = true
+        errorMessage.value = null
+
+        await fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: encodeFormData(formData),
+        })
+
+        form.reset()
+        await router.push({ path: '/success', query: { ok: '1' } })
+    } catch (error) {
+        console.error('Netlify form submission failed', error)
+        errorMessage.value = 'Something went wrong. Please try again.'
+    } finally {
+        isSubmitting.value = false
+    }
+}
+</script>
