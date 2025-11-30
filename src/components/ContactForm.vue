@@ -13,6 +13,7 @@
                 name="contact"
                 method="POST"
                 action="/success"
+                netlify
                 data-netlify="true"
                 netlify-honeypot="bot-field"
                 class="space-y-6 bg-ax-gray-100 dark:bg-ax-primary-950 p-8 rounded-xl shadow-sm transition-colors"
